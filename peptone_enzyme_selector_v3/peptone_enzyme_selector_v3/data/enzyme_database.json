@@ -1,0 +1,437 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "펩톤 생산용 프로테아제 효소 데이터베이스",
+    "created": "2025-01-20",
+    "author": "R&D Team"
+  },
+  "amino_acid_groups": {
+    "hydrophobic": ["Leu", "Ile", "Val", "Phe", "Trp", "Met", "Ala"],
+    "aromatic": ["Phe", "Tyr", "Trp"],
+    "basic": ["Lys", "Arg", "His"],
+    "acidic": ["Asp", "Glu"],
+    "hydroxyl": ["Ser", "Thr"],
+    "amide": ["Asn", "Gln"],
+    "sulfur": ["Cys", "Met"],
+    "imino": ["Pro"],
+    "small": ["Gly", "Ala"],
+    "collagen_marker": ["Pro", "Gly", "Hydroxyproline"]
+  },
+  "column_mapping": {
+    "Asp": "taa_Aspartic acid",
+    "Hyp": "taa_Hydroxyproline",
+    "Thr": "taa_Threonine",
+    "Ser": "taa_Serine",
+    "Asn": "taa_Asparagine",
+    "Glu": "taa_Glutamic acid",
+    "Gln": "taa_Glutamine",
+    "Cys": "taa_Cysteine",
+    "Pro": "taa_Proline",
+    "Gly": "taa_Glycine",
+    "Ala": "taa_Alanine",
+    "Val": "taa_Valine",
+    "Met": "taa_Methionine",
+    "Ile": "taa_Isoleucine",
+    "Leu": "taa_Leucine",
+    "Tyr": "taa_Tyrosine",
+    "Phe": "taa_Phenylalanine",
+    "His": "taa_Histidine",
+    "Trp": "taa_Tryptophan",
+    "Lys": "taa_Lysine",
+    "Arg": "taa_Arginine"
+  },
+  "enzymes": [
+    {
+      "id": "alcalase",
+      "name": "Alcalase 2.4L",
+      "manufacturer": "Novozymes",
+      "type": "endoprotease",
+      "ec_number": "EC 3.4.21.62",
+      "source": "Bacillus licheniformis",
+      "optimal_conditions": {
+        "temperature": {"min": 55, "max": 60, "unit": "°C"},
+        "pH": {"min": 7.5, "max": 8.5},
+        "ES_ratio": {"min": 0.5, "max": 2.0, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 6, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["Leu", "Phe", "Tyr", "Trp", "Val", "Ile"],
+        "secondary_cleavage": ["Met", "Ala"],
+        "affinity_scores": {
+          "hydrophobic": 0.95,
+          "aromatic": 0.90,
+          "basic": 0.55,
+          "acidic": 0.40,
+          "proline_penalty": 0.70
+        }
+      },
+      "suitable_substrates": ["soy", "wheat", "pea", "rice", "microalgae", "plant"],
+      "characteristics": {
+        "DH_range": "15-25%",
+        "FAN_yield": "높음",
+        "bitterness": "중간",
+        "specificity_type": "광범위"
+      },
+      "notes": "가장 범용성 높은 효소. 높은 FAN 수율. 식물성 원료 전반에 적합."
+    },
+    {
+      "id": "flavourzyme",
+      "name": "Flavourzyme 1000L",
+      "manufacturer": "Novozymes",
+      "type": "endo/exoprotease complex",
+      "ec_number": "EC 3.4.11/21",
+      "source": "Aspergillus oryzae",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 55, "unit": "°C"},
+        "pH": {"min": 5.5, "max": 7.0},
+        "ES_ratio": {"min": 0.5, "max": 1.5, "unit": "% (w/w)"},
+        "reaction_time": {"min": 3, "max": 8, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["broad spectrum", "N-terminal release"],
+        "secondary_cleavage": ["all amino acids"],
+        "affinity_scores": {
+          "hydrophobic": 0.80,
+          "aromatic": 0.75,
+          "basic": 0.70,
+          "acidic": 0.70,
+          "proline_penalty": 0.50
+        }
+      },
+      "suitable_substrates": ["soy", "wheat", "pea", "rice", "yeast", "plant"],
+      "characteristics": {
+        "DH_range": "20-40%",
+        "FAN_yield": "매우 높음",
+        "bitterness": "낮음 (디펩타이드 분해)",
+        "specificity_type": "광범위 + Exo"
+      },
+      "notes": "Endo+Exo 복합 효소. 쓴맛 감소 효과. 유리 아미노산 생성 극대화. 2차 처리에 적합."
+    },
+    {
+      "id": "protamex",
+      "name": "Protamex",
+      "manufacturer": "Novozymes",
+      "type": "endoprotease complex",
+      "ec_number": "EC 3.4.21/24",
+      "source": "Bacillus sp. complex",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 55, "unit": "°C"},
+        "pH": {"min": 6.0, "max": 8.0},
+        "ES_ratio": {"min": 0.5, "max": 2.0, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 5, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["Leu", "Phe", "Tyr", "Trp", "Lys", "Arg"],
+        "secondary_cleavage": ["Val", "Ile", "Met"],
+        "affinity_scores": {
+          "hydrophobic": 0.85,
+          "aromatic": 0.80,
+          "basic": 0.75,
+          "acidic": 0.50,
+          "proline_penalty": 0.55
+        }
+      },
+      "suitable_substrates": ["soy", "wheat", "pea", "fish", "plant"],
+      "characteristics": {
+        "DH_range": "12-20%",
+        "FAN_yield": "높음",
+        "bitterness": "낮음",
+        "specificity_type": "광범위"
+      },
+      "notes": "식물성 단백질 최적화. 쓴맛 적음. 식품용 펩톤에 적합."
+    },
+    {
+      "id": "neutrase",
+      "name": "Neutrase 0.8L",
+      "manufacturer": "Novozymes",
+      "type": "metalloprotease",
+      "ec_number": "EC 3.4.24.28",
+      "source": "Bacillus amyloliquefaciens",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 55, "unit": "°C"},
+        "pH": {"min": 6.0, "max": 7.5},
+        "ES_ratio": {"min": 0.3, "max": 1.0, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 6, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["Leu", "Phe", "Val", "Ile"],
+        "secondary_cleavage": ["Ala", "Met"],
+        "affinity_scores": {
+          "hydrophobic": 0.88,
+          "aromatic": 0.75,
+          "basic": 0.50,
+          "acidic": 0.45,
+          "proline_penalty": 0.40
+        }
+      },
+      "suitable_substrates": ["fish", "pork", "collagen", "gelatin", "animal"],
+      "characteristics": {
+        "DH_range": "8-15%",
+        "FAN_yield": "중간",
+        "bitterness": "매우 낮음",
+        "specificity_type": "중간"
+      },
+      "notes": "동물성 원료에 최적. 젤라틴/콜라겐 분해 우수. 쓴맛 최소화."
+    },
+    {
+      "id": "papain",
+      "name": "Papain",
+      "manufacturer": "Various",
+      "type": "cysteine protease",
+      "ec_number": "EC 3.4.22.2",
+      "source": "Carica papaya (파파야)",
+      "optimal_conditions": {
+        "temperature": {"min": 60, "max": 70, "unit": "°C"},
+        "pH": {"min": 5.5, "max": 7.5},
+        "ES_ratio": {"min": 0.1, "max": 1.0, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 8, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["Arg", "Lys", "Phe", "Leu"],
+        "secondary_cleavage": ["Gly", "Val"],
+        "affinity_scores": {
+          "hydrophobic": 0.80,
+          "aromatic": 0.85,
+          "basic": 0.90,
+          "acidic": 0.55,
+          "proline_penalty": 0.35
+        }
+      },
+      "suitable_substrates": ["soy", "pork", "fish", "collagen", "plant", "animal"],
+      "characteristics": {
+        "DH_range": "15-30%",
+        "FAN_yield": "높음",
+        "bitterness": "중간",
+        "specificity_type": "광범위"
+      },
+      "notes": "식물/동물 모두 적용 가능. 고온 안정성. 콜라겐 분해 효과적. 환원제 필요할 수 있음."
+    },
+    {
+      "id": "bromelain",
+      "name": "Bromelain",
+      "manufacturer": "Various",
+      "type": "cysteine protease",
+      "ec_number": "EC 3.4.22.32",
+      "source": "Ananas comosus (파인애플)",
+      "optimal_conditions": {
+        "temperature": {"min": 50, "max": 60, "unit": "°C"},
+        "pH": {"min": 5.0, "max": 8.0},
+        "ES_ratio": {"min": 0.1, "max": 0.5, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 6, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["Lys", "Ala", "Tyr", "Gly"],
+        "secondary_cleavage": ["Leu", "Val"],
+        "affinity_scores": {
+          "hydrophobic": 0.70,
+          "aromatic": 0.80,
+          "basic": 0.85,
+          "acidic": 0.60,
+          "proline_penalty": 0.30
+        }
+      },
+      "suitable_substrates": ["pork", "fish", "collagen", "animal"],
+      "characteristics": {
+        "DH_range": "10-25%",
+        "FAN_yield": "중간",
+        "bitterness": "낮음",
+        "specificity_type": "광범위"
+      },
+      "notes": "동물성 원료에 우수. 콜라겐/젤라틴 분해 효과적. 넓은 pH 범위."
+    },
+    {
+      "id": "trypsin",
+      "name": "Trypsin",
+      "manufacturer": "Various",
+      "type": "serine protease",
+      "ec_number": "EC 3.4.21.4",
+      "source": "Bovine/Porcine pancreas",
+      "optimal_conditions": {
+        "temperature": {"min": 35, "max": 45, "unit": "°C"},
+        "pH": {"min": 7.5, "max": 8.5},
+        "ES_ratio": {"min": 0.05, "max": 0.5, "unit": "% (w/w)"},
+        "reaction_time": {"min": 1, "max": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["Lys", "Arg"],
+        "secondary_cleavage": [],
+        "affinity_scores": {
+          "hydrophobic": 0.30,
+          "aromatic": 0.35,
+          "basic": 0.98,
+          "acidic": 0.20,
+          "proline_penalty": 0.80
+        }
+      },
+      "suitable_substrates": ["casein", "soy", "pork", "animal"],
+      "characteristics": {
+        "DH_range": "5-12%",
+        "FAN_yield": "낮음-중간",
+        "bitterness": "낮음",
+        "specificity_type": "매우 특이적"
+      },
+      "notes": "Lys/Arg 특이적 절단. 고 염기성 아미노산 원료에 적합. Tryptone 생산용."
+    },
+    {
+      "id": "pepsin",
+      "name": "Pepsin",
+      "manufacturer": "Various",
+      "type": "aspartic protease",
+      "ec_number": "EC 3.4.23.1",
+      "source": "Porcine gastric mucosa",
+      "optimal_conditions": {
+        "temperature": {"min": 35, "max": 45, "unit": "°C"},
+        "pH": {"min": 1.5, "max": 2.5},
+        "ES_ratio": {"min": 0.1, "max": 1.0, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 8, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["Phe", "Tyr", "Leu", "Trp"],
+        "secondary_cleavage": ["Met", "Ala"],
+        "affinity_scores": {
+          "hydrophobic": 0.92,
+          "aromatic": 0.95,
+          "basic": 0.25,
+          "acidic": 0.30,
+          "proline_penalty": 0.75
+        }
+      },
+      "suitable_substrates": ["collagen", "pork", "fish", "casein", "animal"],
+      "characteristics": {
+        "DH_range": "10-20%",
+        "FAN_yield": "중간",
+        "bitterness": "높음",
+        "specificity_type": "방향족 특이적"
+      },
+      "notes": "산성 조건 필수. 방향족 아미노산 위치에서 절단. 동물성 원료에 효과적. pH 조정 필요."
+    },
+    {
+      "id": "pronase",
+      "name": "Pronase E",
+      "manufacturer": "Roche/Sigma",
+      "type": "protease mixture",
+      "ec_number": "EC 3.4.24",
+      "source": "Streptomyces griseus",
+      "optimal_conditions": {
+        "temperature": {"min": 35, "max": 50, "unit": "°C"},
+        "pH": {"min": 7.0, "max": 8.0},
+        "ES_ratio": {"min": 0.1, "max": 0.5, "unit": "% (w/w)"},
+        "reaction_time": {"min": 4, "max": 12, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["all amino acids"],
+        "secondary_cleavage": [],
+        "affinity_scores": {
+          "hydrophobic": 0.85,
+          "aromatic": 0.85,
+          "basic": 0.85,
+          "acidic": 0.85,
+          "proline_penalty": 0.20
+        }
+      },
+      "suitable_substrates": ["microalgae", "yeast", "plant", "animal"],
+      "characteristics": {
+        "DH_range": "25-50%",
+        "FAN_yield": "매우 높음",
+        "bitterness": "낮음",
+        "specificity_type": "매우 광범위"
+      },
+      "notes": "가장 광범위한 특이성. 미세조류 세포벽 단백질 분해에 효과적. 완전 가수분해에 적합."
+    },
+    {
+      "id": "cellulase_protease",
+      "name": "Celluclast + Protease Complex",
+      "manufacturer": "Novozymes",
+      "type": "cellulase + protease",
+      "ec_number": "EC 3.2.1.4 + EC 3.4",
+      "source": "Trichoderma reesei + Bacillus sp.",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 55, "unit": "°C"},
+        "pH": {"min": 4.5, "max": 6.0},
+        "ES_ratio": {"min": 1.0, "max": 3.0, "unit": "% (w/w)"},
+        "reaction_time": {"min": 4, "max": 12, "unit": "hours"}
+      },
+      "specificity": {
+        "primary_cleavage": ["cell wall disruption", "protein release"],
+        "secondary_cleavage": ["Leu", "Phe", "Val"],
+        "affinity_scores": {
+          "hydrophobic": 0.75,
+          "aromatic": 0.70,
+          "basic": 0.65,
+          "acidic": 0.65,
+          "proline_penalty": 0.40
+        }
+      },
+      "suitable_substrates": ["microalgae", "yeast", "plant"],
+      "characteristics": {
+        "DH_range": "15-30%",
+        "FAN_yield": "높음",
+        "bitterness": "중간",
+        "specificity_type": "복합"
+      },
+      "notes": "세포벽 분해 + 단백질 분해 동시 진행. 미세조류/효모에 필수적. 2단계 처리 권장."
+    }
+  ],
+  "substrate_type_rules": {
+    "soy": {
+      "preferred_enzymes": ["alcalase", "flavourzyme", "protamex"],
+      "characteristics": ["높은 글루탐산", "소수성 AA 풍부"],
+      "typical_TN": "9-14%"
+    },
+    "wheat": {
+      "preferred_enzymes": ["alcalase", "flavourzyme", "protamex"],
+      "characteristics": ["높은 글루탐산/글루타민", "프롤린 함량 높음"],
+      "typical_TN": "12-14%"
+    },
+    "pea": {
+      "preferred_enzymes": ["alcalase", "flavourzyme", "protamex"],
+      "characteristics": ["높은 라이신/아르기닌", "균형잡힌 AA"],
+      "typical_TN": "14-15%"
+    },
+    "rice": {
+      "preferred_enzymes": ["alcalase", "flavourzyme"],
+      "characteristics": ["높은 알라닌", "낮은 라이신"],
+      "typical_TN": "12-13%"
+    },
+    "fish": {
+      "preferred_enzymes": ["neutrase", "papain", "alcalase"],
+      "characteristics": ["콜라겐 함유", "높은 글리신/프롤린"],
+      "typical_TN": "15-17%"
+    },
+    "pork": {
+      "preferred_enzymes": ["neutrase", "papain", "bromelain"],
+      "characteristics": ["콜라겐 함유", "높은 하이드록시프롤린"],
+      "typical_TN": "13-17%"
+    },
+    "collagen": {
+      "preferred_enzymes": ["neutrase", "papain", "bromelain", "pepsin"],
+      "characteristics": ["Gly-Pro-X 반복", "매우 높은 Gly/Pro"],
+      "typical_TN": "16-18%"
+    },
+    "casein": {
+      "preferred_enzymes": ["trypsin", "alcalase", "pepsin"],
+      "characteristics": ["높은 포스포세린", "높은 Pro"],
+      "typical_TN": "9-10%"
+    },
+    "yeast": {
+      "preferred_enzymes": ["flavourzyme", "pronase", "cellulase_protease"],
+      "characteristics": ["세포벽 존재", "높은 Glu/Asp"],
+      "typical_TN": "10-12%"
+    },
+    "microalgae": {
+      "preferred_enzymes": ["pronase", "cellulase_protease", "alcalase"],
+      "characteristics": ["강한 세포벽", "다양한 AA 조성"],
+      "typical_TN": "8-15%"
+    }
+  },
+  "scoring_weights": {
+    "hydrophobic_weight": 30,
+    "aromatic_weight": 25,
+    "basic_weight": 20,
+    "acidic_weight": 15,
+    "proline_penalty_weight": 10,
+    "substrate_match_bonus": 1.20,
+    "collagen_specialist_bonus": 1.25,
+    "cell_wall_bonus": 1.30
+  }
+}

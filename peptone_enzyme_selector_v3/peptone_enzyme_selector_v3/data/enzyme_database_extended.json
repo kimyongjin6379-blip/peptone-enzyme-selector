@@ -1,0 +1,982 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "description": "펩톤 생산용 상업용 프로테아제 효소 확장 데이터베이스",
+    "created": "2025-01-20",
+    "updated": "2025-01-20",
+    "author": "R&D Team",
+    "sources": ["Novozymes/Novonesis", "AB Enzymes", "DSM-Firmenich", "Sigma-Aldrich", "Literature"]
+  },
+  "amino_acid_groups": {
+    "hydrophobic": ["Leu", "Ile", "Val", "Phe", "Trp", "Met", "Ala"],
+    "aromatic": ["Phe", "Tyr", "Trp"],
+    "basic": ["Lys", "Arg", "His"],
+    "acidic": ["Asp", "Glu"],
+    "hydroxyl": ["Ser", "Thr"],
+    "amide": ["Asn", "Gln"],
+    "sulfur": ["Cys", "Met"],
+    "imino": ["Pro"],
+    "small": ["Gly", "Ala"],
+    "collagen_marker": ["Pro", "Gly", "Hyp"]
+  },
+  "column_mapping": {
+    "Asp": "taa_Aspartic acid",
+    "Hyp": "taa_Hydroxyproline",
+    "Thr": "taa_Threonine",
+    "Ser": "taa_Serine",
+    "Asn": "taa_Asparagine",
+    "Glu": "taa_Glutamic acid",
+    "Gln": "taa_Glutamine",
+    "Cys": "taa_Cysteine",
+    "Pro": "taa_Proline",
+    "Gly": "taa_Glycine",
+    "Ala": "taa_Alanine",
+    "Val": "taa_Valine",
+    "Met": "taa_Methionine",
+    "Ile": "taa_Isoleucine",
+    "Leu": "taa_Leucine",
+    "Tyr": "taa_Tyrosine",
+    "Phe": "taa_Phenylalanine",
+    "His": "taa_Histidine",
+    "Trp": "taa_Tryptophan",
+    "Lys": "taa_Lysine",
+    "Arg": "taa_Arginine"
+  },
+  "enzymes": [
+    {
+      "id": "alcalase_2.4L",
+      "name": "Alcalase 2.4L FG",
+      "manufacturer": "Novozymes/Novonesis",
+      "type": "serine endoprotease",
+      "ec_number": "EC 3.4.21.62",
+      "source": "Bacillus licheniformis",
+      "activity_unit": "2.4 AU/g (Anson Units)",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 55, "max": 70, "optimal": 60, "unit": "°C"},
+        "pH": {"min": 6.0, "max": 8.5, "optimal": 8.0},
+        "ES_ratio": {"min": 0.5, "max": 2.5, "recommended": 1.0, "unit": "% (v/w)"},
+        "reaction_time": {"min": 2, "max": 6, "typical": 3, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Subtilisin A",
+        "primary_cleavage": ["Leu", "Phe", "Tyr", "Trp", "Val", "Ile"],
+        "secondary_cleavage": ["Met", "Ala", "Glu"],
+        "description": "소수성/방향족 아미노산 C-말단 절단",
+        "affinity_scores": {
+          "hydrophobic": 0.95,
+          "aromatic": 0.90,
+          "basic": 0.55,
+          "acidic": 0.50,
+          "proline_penalty": 0.65
+        }
+      },
+      "suitable_substrates": ["soy", "wheat", "pea", "rice", "fish", "microalgae", "plant", "animal"],
+      "characteristics": {
+        "DH_range": "15-30%",
+        "FAN_yield": "높음",
+        "bitterness": "중간-높음",
+        "specificity_type": "광범위 (Broad spectrum)",
+        "protein_recovery": "70-85%"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Flavourzyme 1000L", "purpose": "쓴맛 감소, FAN 증가", "sequence": "2차"},
+        {"enzyme": "Protana Prime", "purpose": "심층 가수분해", "sequence": "2차"}
+      ],
+      "notes": "가장 범용적인 Endo-protease. 1차 가수분해에 최적. Protana Prime과 병용시 가수분해 50% 향상. 높은 온도 안정성.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    },
+    {
+      "id": "flavourzyme_1000L",
+      "name": "Flavourzyme 1000L",
+      "manufacturer": "Novozymes/Novonesis",
+      "type": "endo/exoprotease complex",
+      "ec_number": "EC 3.4.11/21",
+      "source": "Aspergillus oryzae",
+      "activity_unit": "1000 LAPU/g (Leucine Aminopeptidase Units)",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 60, "optimal": 50, "unit": "°C"},
+        "pH": {"min": 5.0, "max": 7.0, "optimal": 6.5},
+        "ES_ratio": {"min": 0.5, "max": 2.0, "recommended": 1.0, "unit": "% (v/w)"},
+        "reaction_time": {"min": 2, "max": 8, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Endo + Exo-peptidase complex",
+        "primary_cleavage": ["broad spectrum", "N-terminal release"],
+        "secondary_cleavage": ["all amino acids"],
+        "description": "Endo + Aminopeptidase 복합 효소, 유리 아미노산 방출",
+        "affinity_scores": {
+          "hydrophobic": 0.80,
+          "aromatic": 0.75,
+          "basic": 0.75,
+          "acidic": 0.70,
+          "proline_penalty": 0.45
+        }
+      },
+      "suitable_substrates": ["soy", "wheat", "pea", "rice", "casein", "yeast", "plant"],
+      "characteristics": {
+        "DH_range": "20-45%",
+        "FAN_yield": "매우 높음",
+        "bitterness": "낮음 (디펩타이드 분해로 쓴맛 감소)",
+        "specificity_type": "광범위 + Exopeptidase",
+        "free_AA_release": "높음"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Alcalase 2.4L", "purpose": "1차 가수분해 후 풍미 개선", "sequence": "2차"}
+      ],
+      "notes": "Endo+Exo 복합 효소. 쓴맛 감소 효과 탁월. 유리 아미노산 생성 극대화. Alcalase 후 2차 처리에 최적.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    },
+    {
+      "id": "protamex",
+      "name": "Protamex",
+      "manufacturer": "Novozymes/Novonesis",
+      "type": "endoprotease complex",
+      "ec_number": "EC 3.4.21/24",
+      "source": "Bacillus sp. complex",
+      "activity_unit": "1.5 AU/g",
+      "form": "Granulated",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 60, "optimal": 55, "unit": "°C"},
+        "pH": {"min": 6.0, "max": 8.0, "optimal": 7.5},
+        "ES_ratio": {"min": 0.5, "max": 2.0, "recommended": 1.0, "unit": "% (v/w)"},
+        "reaction_time": {"min": 2, "max": 5, "typical": 3, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Broad spectrum endo-protease",
+        "primary_cleavage": ["Leu", "Phe", "Tyr", "Trp", "Lys", "Arg"],
+        "secondary_cleavage": ["Val", "Ile", "Met"],
+        "description": "광범위 절단, 쓴맛 생성 최소화",
+        "affinity_scores": {
+          "hydrophobic": 0.85,
+          "aromatic": 0.80,
+          "basic": 0.75,
+          "acidic": 0.55,
+          "proline_penalty": 0.50
+        }
+      },
+      "suitable_substrates": ["soy", "wheat", "pea", "fish", "whey", "plant", "dairy"],
+      "characteristics": {
+        "DH_range": "12-25%",
+        "FAN_yield": "높음",
+        "bitterness": "낮음",
+        "specificity_type": "광범위",
+        "flavor_profile": "우수"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Flavourzyme 1000L", "purpose": "추가 가수분해", "sequence": "2차"}
+      ],
+      "notes": "식물성/유제품 단백질 최적화. 쓴맛 최소화. 식품용 펩톤에 적합. Granulated form으로 취급 용이.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    },
+    {
+      "id": "neutrase_0.8L",
+      "name": "Neutrase 0.8L",
+      "manufacturer": "Novozymes/Novonesis",
+      "type": "metalloprotease (Zn)",
+      "ec_number": "EC 3.4.24.28",
+      "source": "Bacillus amyloliquefaciens",
+      "activity_unit": "0.8 AU/g",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 40, "max": 55, "optimal": 50, "unit": "°C"},
+        "pH": {"min": 5.5, "max": 7.5, "optimal": 7.0},
+        "ES_ratio": {"min": 0.3, "max": 1.5, "recommended": 0.5, "unit": "% (v/w)"},
+        "reaction_time": {"min": 2, "max": 6, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Metalloprotease",
+        "primary_cleavage": ["Leu", "Phe", "Val", "Ile"],
+        "secondary_cleavage": ["Ala", "Met"],
+        "description": "소수성 아미노산 N-말단 절단, 온화한 가수분해",
+        "affinity_scores": {
+          "hydrophobic": 0.88,
+          "aromatic": 0.75,
+          "basic": 0.50,
+          "acidic": 0.45,
+          "proline_penalty": 0.35
+        }
+      },
+      "suitable_substrates": ["fish", "pork", "collagen", "gelatin", "casein", "skim_milk", "animal"],
+      "characteristics": {
+        "DH_range": "8-18%",
+        "FAN_yield": "중간",
+        "bitterness": "매우 낮음",
+        "specificity_type": "중간 (Moderate)",
+        "flavor_profile": "매우 우수"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Alcalase 2.4L", "purpose": "1차 + 2차 병용", "sequence": "병용"},
+        {"enzyme": "Flavourzyme 1000L", "purpose": "심층 가수분해", "sequence": "2차"}
+      ],
+      "notes": "동물성 원료에 최적. 젤라틴/콜라겐 분해 우수. 쓴맛 최소화. 중성 pH에서 작용.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    },
+    {
+      "id": "protana_prime",
+      "name": "Protana Prime",
+      "manufacturer": "Novozymes/Novonesis",
+      "type": "exopeptidase blend",
+      "ec_number": "EC 3.4.11",
+      "source": "Microbial blend",
+      "activity_unit": "1067 LAPU/g, 979 CPDU(A)/g",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 50, "max": 60, "optimal": 55, "unit": "°C"},
+        "pH": {"min": 6.0, "max": 8.0, "optimal": 7.0},
+        "ES_ratio": {"min": 0.5, "max": 2.0, "recommended": 1.0, "unit": "% (v/w)"},
+        "reaction_time": {"min": 4, "max": 8, "typical": 6, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Exo-peptidase blend (Aminopeptidase + Carboxypeptidase)",
+        "primary_cleavage": ["N-terminal", "C-terminal"],
+        "secondary_cleavage": ["free amino acid release"],
+        "description": "단백질 말단에서 유리 아미노산 방출",
+        "affinity_scores": {
+          "hydrophobic": 0.85,
+          "aromatic": 0.85,
+          "basic": 0.90,
+          "acidic": 0.85,
+          "proline_penalty": 0.30
+        }
+      },
+      "suitable_substrates": ["soy", "fish", "pork", "yeast", "plant", "animal"],
+      "characteristics": {
+        "DH_range": "35-55% (병용시)",
+        "FAN_yield": "매우 높음",
+        "bitterness": "낮음 (debittering effect)",
+        "specificity_type": "Exo-peptidase",
+        "umami_enhancement": "높음"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Alcalase 2.4L", "purpose": "1차 Endo + 2차 Exo 조합", "sequence": "반드시 2차"},
+        {"enzyme": "Protana UBoost", "purpose": "Glutamine → Glutamic acid 변환 (우마미 증강)", "sequence": "동시 또는 후"}
+      ],
+      "notes": "Alcalase와 병용시 가수분해 50% 향상. 쓴맛 제거에 효과적. 우마미 풍미 생성. 반드시 Endo-protease 처리 후 사용.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    },
+    {
+      "id": "protana_uboost",
+      "name": "Protana UBoost",
+      "manufacturer": "Novozymes/Novonesis",
+      "type": "glutaminase",
+      "ec_number": "EC 3.5.1.2",
+      "source": "Microbial",
+      "activity_unit": "Glutaminase activity",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 60, "optimal": 55, "unit": "°C"},
+        "pH": {"min": 5.5, "max": 7.5, "optimal": 6.5},
+        "ES_ratio": {"min": 0.1, "max": 1.0, "recommended": 0.5, "unit": "% (v/w)"},
+        "reaction_time": {"min": 2, "max": 6, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Glutaminase",
+        "primary_cleavage": ["Glutamine → Glutamic acid"],
+        "secondary_cleavage": [],
+        "description": "Glutamine을 Glutamic acid로 전환하여 우마미 풍미 극대화",
+        "affinity_scores": {
+          "hydrophobic": 0.30,
+          "aromatic": 0.30,
+          "basic": 0.40,
+          "acidic": 0.95,
+          "proline_penalty": 0.10
+        }
+      },
+      "suitable_substrates": ["soy", "wheat", "yeast", "plant"],
+      "characteristics": {
+        "DH_range": "N/A (가수분해 효소 아님)",
+        "FAN_yield": "N/A",
+        "bitterness": "감소 효과",
+        "specificity_type": "매우 특이적 (Glutamine specific)",
+        "umami_enhancement": "매우 높음"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Alcalase 2.4L + Protana Prime", "purpose": "우마미 풍미 극대화 3단계", "sequence": "3차"}
+      ],
+      "notes": "eHVP(효소 가수분해 식물성 단백질) 생산의 핵심 효소. 우마미 맛 극대화. 효모추출물 대체 가능.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    },
+    {
+      "id": "savinase",
+      "name": "Savinase",
+      "manufacturer": "Novozymes/Novonesis",
+      "type": "serine endoprotease",
+      "ec_number": "EC 3.4.21.62",
+      "source": "Bacillus sp.",
+      "activity_unit": "16 KNPU/g (Kilo Novo Protease Units)",
+      "form": "Liquid/Granulated",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 65, "optimal": 55, "unit": "°C"},
+        "pH": {"min": 7.0, "max": 10.0, "optimal": 8.5},
+        "ES_ratio": {"min": 0.3, "max": 1.5, "recommended": 0.5, "unit": "% (v/w)"},
+        "reaction_time": {"min": 2, "max": 8, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Subtilisin-type serine protease",
+        "primary_cleavage": ["Broad spectrum", "hydrophobic C-terminal"],
+        "secondary_cleavage": ["Glu", "Asp"],
+        "description": "광범위 절단, 알칼리 조건에서 안정",
+        "affinity_scores": {
+          "hydrophobic": 0.90,
+          "aromatic": 0.85,
+          "basic": 0.60,
+          "acidic": 0.55,
+          "proline_penalty": 0.55
+        }
+      },
+      "suitable_substrates": ["fish", "pork", "collagen", "feather", "animal"],
+      "characteristics": {
+        "DH_range": "15-30%",
+        "FAN_yield": "높음",
+        "bitterness": "중간-높음",
+        "specificity_type": "광범위",
+        "alkaline_stability": "우수"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Flavourzyme 1000L", "purpose": "쓴맛 감소", "sequence": "2차"}
+      ],
+      "notes": "GAG(글리코사미노글리칸) 추출에 효과적. 깃털(케라틴) 가수분해에 사용. 알칼리 조건에서 안정적.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    },
+    {
+      "id": "corolase_7089",
+      "name": "COROLASE 7089",
+      "manufacturer": "AB Enzymes",
+      "type": "bacterial endopeptidase",
+      "ec_number": "EC 3.4.21",
+      "source": "Bacillus subtilis",
+      "activity_unit": "Protease Units",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 60, "optimal": 55, "unit": "°C"},
+        "pH": {"min": 6.0, "max": 8.0, "optimal": 7.0},
+        "ES_ratio": {"min": 0.3, "max": 1.5, "recommended": 0.5, "unit": "% (v/w)"},
+        "reaction_time": {"min": 2, "max": 6, "typical": 3, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Neutral bacterial protease",
+        "primary_cleavage": ["Broad spectrum"],
+        "secondary_cleavage": [],
+        "description": "중성 pH에서 광범위 가수분해, 동물성 단백질에 특히 우수",
+        "affinity_scores": {
+          "hydrophobic": 0.85,
+          "aromatic": 0.80,
+          "basic": 0.65,
+          "acidic": 0.60,
+          "proline_penalty": 0.45
+        }
+      },
+      "suitable_substrates": ["collagen", "gelatin", "fish", "pork", "plant", "animal"],
+      "characteristics": {
+        "DH_range": "12-25%",
+        "FAN_yield": "높음",
+        "bitterness": "낮음",
+        "specificity_type": "광범위",
+        "flavor_profile": "특히 동물성 단백질에서 우수"
+      },
+      "recommended_combinations": [
+        {"enzyme": "COROLASE 8000", "purpose": "심층 가수분해", "sequence": "병용 또는 2차"}
+      ],
+      "notes": "동물성 단백질(특히 콜라겐)에서 우수한 풍미 프로파일. COROLASE 8000과 시너지 효과.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": true
+    },
+    {
+      "id": "corolase_8000",
+      "name": "COROLASE 8000",
+      "manufacturer": "AB Enzymes",
+      "type": "fungal alkaline protease",
+      "ec_number": "EC 3.4.21",
+      "source": "Aspergillus sp.",
+      "activity_unit": "Protease Units",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 60, "optimal": 55, "unit": "°C"},
+        "pH": {"min": 7.0, "max": 9.0, "optimal": 8.0},
+        "ES_ratio": {"min": 0.3, "max": 2.0, "recommended": 1.0, "unit": "% (v/w)"},
+        "reaction_time": {"min": 3, "max": 8, "typical": 5, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Fungal alkaline protease",
+        "primary_cleavage": ["Broad spectrum under alkaline conditions"],
+        "secondary_cleavage": [],
+        "description": "알칼리 조건에서 높은 가수분해율",
+        "affinity_scores": {
+          "hydrophobic": 0.88,
+          "aromatic": 0.82,
+          "basic": 0.70,
+          "acidic": 0.55,
+          "proline_penalty": 0.50
+        }
+      },
+      "suitable_substrates": ["pork", "fish", "collagen", "animal"],
+      "characteristics": {
+        "DH_range": "20-35%",
+        "FAN_yield": "높음",
+        "bitterness": "중간",
+        "specificity_type": "광범위 (알칼리)",
+        "high_DH": true
+      },
+      "recommended_combinations": [
+        {"enzyme": "COROLASE 7089", "purpose": "1차 중성 + 2차 알칼리", "sequence": "2차"}
+      ],
+      "notes": "동물성 단백질 전용. 높은 가수분해율 달성에 최적. 콜라겐 펩타이드 생산에 효과적.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": true
+    },
+    {
+      "id": "corolase_vp",
+      "name": "COROLASE VP",
+      "manufacturer": "AB Enzymes",
+      "type": "bacterial endoprotease (thermostable)",
+      "ec_number": "EC 3.4.21",
+      "source": "Bacillus sp.",
+      "activity_unit": "Protease Units",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 55, "max": 75, "optimal": 65, "unit": "°C"},
+        "pH": {"min": 6.0, "max": 8.0, "optimal": 7.0},
+        "ES_ratio": {"min": 0.3, "max": 1.5, "recommended": 0.5, "unit": "% (w/w)"},
+        "reaction_time": {"min": 1, "max": 4, "typical": 2, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Thermostable bacterial protease",
+        "primary_cleavage": ["Broad spectrum"],
+        "secondary_cleavage": [],
+        "description": "75°C까지 사용 가능한 고온 안정성, 빠른 가수분해",
+        "affinity_scores": {
+          "hydrophobic": 0.90,
+          "aromatic": 0.85,
+          "basic": 0.60,
+          "acidic": 0.55,
+          "proline_penalty": 0.55
+        }
+      },
+      "suitable_substrates": ["wheat", "soy", "pea", "plant"],
+      "characteristics": {
+        "DH_range": "15-28%",
+        "FAN_yield": "높음",
+        "bitterness": "중간",
+        "specificity_type": "광범위",
+        "thermostability": "매우 우수 (75°C)"
+      },
+      "recommended_combinations": [],
+      "notes": "AB Enzymes의 식물성 단백질 최적 효소. 75°C까지 안정하여 미생물 제어와 빠른 가수분해 동시 달성.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": true
+    },
+    {
+      "id": "corolase_2ts",
+      "name": "COROLASE 2TS",
+      "manufacturer": "AB Enzymes",
+      "type": "bacterial endoprotease (thermostable)",
+      "ec_number": "EC 3.4.21",
+      "source": "Bacillus stearothermophilus",
+      "activity_unit": "Protease Units",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 60, "max": 75, "optimal": 70, "unit": "°C"},
+        "pH": {"min": 6.5, "max": 8.5, "optimal": 7.5},
+        "ES_ratio": {"min": 0.3, "max": 1.5, "recommended": 0.5, "unit": "% (w/w)"},
+        "reaction_time": {"min": 1, "max": 4, "typical": 2, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Highly thermostable protease",
+        "primary_cleavage": ["Broad spectrum"],
+        "secondary_cleavage": [],
+        "description": "고온균 유래 매우 높은 열안정성",
+        "affinity_scores": {
+          "hydrophobic": 0.88,
+          "aromatic": 0.85,
+          "basic": 0.58,
+          "acidic": 0.52,
+          "proline_penalty": 0.58
+        }
+      },
+      "suitable_substrates": ["wheat", "soy", "plant"],
+      "characteristics": {
+        "DH_range": "15-30%",
+        "FAN_yield": "높음",
+        "bitterness": "중간-높음",
+        "specificity_type": "광범위",
+        "thermostability": "최고 수준"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Flavourzyme type", "purpose": "쓴맛 감소", "sequence": "2차"}
+      ],
+      "notes": "가장 높은 열안정성. 고온 공정에서 미생물 오염 방지와 가수분해 동시 진행. 쓴맛 발생 가능성 있음.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": true
+    },
+    {
+      "id": "maxipro_hsp",
+      "name": "Maxipro HSP",
+      "manufacturer": "DSM-Firmenich",
+      "type": "serine protease (histidine specific)",
+      "ec_number": "EC 3.4.21",
+      "source": "Microbial",
+      "activity_unit": "Protease Units",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 60, "optimal": 50, "unit": "°C"},
+        "pH": {"min": 6.0, "max": 8.0, "optimal": 7.0},
+        "ES_ratio": {"min": 0.3, "max": 1.5, "recommended": 0.5, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 6, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Histidine-specific protease",
+        "primary_cleavage": ["His"],
+        "secondary_cleavage": [],
+        "description": "Histidine 특이적 절단 - 혈액 헤모글로빈에서 Heme 제거에 효과적",
+        "affinity_scores": {
+          "hydrophobic": 0.50,
+          "aromatic": 0.45,
+          "basic": 0.95,
+          "acidic": 0.40,
+          "proline_penalty": 0.30
+        }
+      },
+      "suitable_substrates": ["blood", "pork", "animal"],
+      "characteristics": {
+        "DH_range": "8-15%",
+        "FAN_yield": "낮음-중간",
+        "bitterness": "매우 낮음",
+        "specificity_type": "매우 특이적 (Histidine)",
+        "special_function": "Heme 제거, 탈색"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Neutrase", "purpose": "추가 가수분해", "sequence": "후"}
+      ],
+      "notes": "혈액 단백질 처리에 최적. Hemoglobin에서 Heme 제거로 탈색 효과. 무색/무취/무미 단백질 생산. FiE Innovation Award 2013 수상.",
+      "kosher": false,
+      "halal": false,
+      "gmo_free": false
+    },
+    {
+      "id": "maxipro_psp",
+      "name": "Maxipro PSP",
+      "manufacturer": "DSM-Firmenich",
+      "type": "proline-specific protease",
+      "ec_number": "EC 3.4.21",
+      "source": "Microbial",
+      "activity_unit": "Protease Units",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 40, "max": 55, "optimal": 50, "unit": "°C"},
+        "pH": {"min": 5.0, "max": 7.0, "optimal": 6.0},
+        "ES_ratio": {"min": 0.3, "max": 1.0, "recommended": 0.5, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 8, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Proline-specific protease",
+        "primary_cleavage": ["Pro"],
+        "secondary_cleavage": [],
+        "description": "Proline 위치 절단 - 고프롤린 단백질 가수분해에 효과적, 쓴맛 감소",
+        "affinity_scores": {
+          "hydrophobic": 0.45,
+          "aromatic": 0.40,
+          "basic": 0.50,
+          "acidic": 0.45,
+          "proline_penalty": -0.50
+        }
+      },
+      "suitable_substrates": ["wheat", "collagen", "casein", "plant"],
+      "characteristics": {
+        "DH_range": "10-20%",
+        "FAN_yield": "중간",
+        "bitterness": "매우 낮음",
+        "specificity_type": "매우 특이적 (Proline)",
+        "special_function": "글루텐 분해, 고프롤린 단백질 처리"
+      },
+      "recommended_combinations": [
+        {"enzyme": "Alcalase", "purpose": "1차 + 특이적 2차", "sequence": "2차"}
+      ],
+      "notes": "고프롤린 단백질(글루텐, 콜라겐) 가수분해에 효과적. 쓴맛 감소 효과 탁월. 글루텐프리 식품 생산에 활용 가능.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    },
+    {
+      "id": "papain",
+      "name": "Papain",
+      "manufacturer": "Various (Sigma, Merck, etc.)",
+      "type": "cysteine protease",
+      "ec_number": "EC 3.4.22.2",
+      "source": "Carica papaya (파파야)",
+      "activity_unit": "6,000+ USP units/mg",
+      "form": "Powder/Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 60, "max": 70, "optimal": 65, "unit": "°C"},
+        "pH": {"min": 5.0, "max": 7.5, "optimal": 6.5},
+        "ES_ratio": {"min": 0.1, "max": 1.0, "recommended": 0.3, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 8, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Cysteine endopeptidase",
+        "primary_cleavage": ["Arg", "Lys", "Phe", "Leu"],
+        "secondary_cleavage": ["Gly", "Val"],
+        "description": "염기성 및 소수성 아미노산 절단, Cysteine 활성화 필요",
+        "affinity_scores": {
+          "hydrophobic": 0.80,
+          "aromatic": 0.85,
+          "basic": 0.90,
+          "acidic": 0.55,
+          "proline_penalty": 0.30
+        }
+      },
+      "suitable_substrates": ["soy", "pork", "fish", "collagen", "plant", "animal"],
+      "characteristics": {
+        "DH_range": "15-35%",
+        "FAN_yield": "높음",
+        "bitterness": "중간",
+        "specificity_type": "광범위",
+        "natural_source": true
+      },
+      "recommended_combinations": [
+        {"enzyme": "Flavourzyme", "purpose": "쓴맛 감소", "sequence": "2차"}
+      ],
+      "notes": "식물 유래 천연 효소. 고온 안정성. 환원제(Cysteine, DTT) 첨가로 활성 증가. 콜라겐 분해에 효과적. 연육제로도 사용.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": true
+    },
+    {
+      "id": "bromelain",
+      "name": "Bromelain",
+      "manufacturer": "Various (Sigma, Merck, etc.)",
+      "type": "cysteine protease",
+      "ec_number": "EC 3.4.22.32/33",
+      "source": "Ananas comosus (파인애플)",
+      "activity_unit": "2,000+ GDU/g",
+      "form": "Powder",
+      "optimal_conditions": {
+        "temperature": {"min": 45, "max": 65, "optimal": 55, "unit": "°C"},
+        "pH": {"min": 4.5, "max": 8.0, "optimal": 6.0},
+        "ES_ratio": {"min": 0.1, "max": 0.5, "recommended": 0.2, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 6, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Cysteine endopeptidase (stem and fruit)",
+        "primary_cleavage": ["Lys", "Ala", "Tyr", "Gly"],
+        "secondary_cleavage": ["Leu", "Val"],
+        "description": "광범위 절단, 넓은 pH 범위",
+        "affinity_scores": {
+          "hydrophobic": 0.70,
+          "aromatic": 0.80,
+          "basic": 0.85,
+          "acidic": 0.60,
+          "proline_penalty": 0.25
+        }
+      },
+      "suitable_substrates": ["pork", "fish", "collagen", "animal"],
+      "characteristics": {
+        "DH_range": "10-30%",
+        "FAN_yield": "중간",
+        "bitterness": "낮음",
+        "specificity_type": "광범위",
+        "natural_source": true
+      },
+      "recommended_combinations": [],
+      "notes": "식물 유래 천연 효소. 넓은 pH 범위(4.5-8.0). 동물성 원료 및 콜라겐에 효과적. 항염증 효과로 건강기능식품에도 활용.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": true
+    },
+    {
+      "id": "trypsin",
+      "name": "Trypsin",
+      "manufacturer": "Various (Sigma, Novozymes, etc.)",
+      "type": "serine protease",
+      "ec_number": "EC 3.4.21.4",
+      "source": "Bovine/Porcine pancreas",
+      "activity_unit": "2,500+ USP units/mg",
+      "form": "Powder/Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 30, "max": 45, "optimal": 37, "unit": "°C"},
+        "pH": {"min": 7.0, "max": 9.0, "optimal": 8.0},
+        "ES_ratio": {"min": 0.05, "max": 0.5, "recommended": 0.1, "unit": "% (w/w)"},
+        "reaction_time": {"min": 1, "max": 4, "typical": 2, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Serine endopeptidase (highly specific)",
+        "primary_cleavage": ["Lys", "Arg"],
+        "secondary_cleavage": [],
+        "description": "Lys, Arg C-말단 매우 특이적 절단",
+        "affinity_scores": {
+          "hydrophobic": 0.25,
+          "aromatic": 0.30,
+          "basic": 0.98,
+          "acidic": 0.20,
+          "proline_penalty": 0.85
+        }
+      },
+      "suitable_substrates": ["casein", "soy", "whey", "animal"],
+      "characteristics": {
+        "DH_range": "5-15%",
+        "FAN_yield": "낮음-중간",
+        "bitterness": "낮음",
+        "specificity_type": "매우 특이적 (Lys, Arg)",
+        "tryptone_production": true
+      },
+      "recommended_combinations": [
+        {"enzyme": "Chymotrypsin", "purpose": "병용 가수분해", "sequence": "동시"}
+      ],
+      "notes": "Tryptone 생산의 핵심 효소. Lys/Arg 특이적 절단으로 제한적 가수분해. 세포배양용 펩톤에 적합.",
+      "kosher": false,
+      "halal": false,
+      "gmo_free": true
+    },
+    {
+      "id": "pepsin",
+      "name": "Pepsin",
+      "manufacturer": "Various (Sigma, Merck, etc.)",
+      "type": "aspartic protease",
+      "ec_number": "EC 3.4.23.1",
+      "source": "Porcine gastric mucosa",
+      "activity_unit": "3,000+ units/mg",
+      "form": "Powder",
+      "optimal_conditions": {
+        "temperature": {"min": 30, "max": 45, "optimal": 37, "unit": "°C"},
+        "pH": {"min": 1.5, "max": 4.0, "optimal": 2.0},
+        "ES_ratio": {"min": 0.1, "max": 1.0, "recommended": 0.3, "unit": "% (w/w)"},
+        "reaction_time": {"min": 2, "max": 8, "typical": 4, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Aspartic endopeptidase",
+        "primary_cleavage": ["Phe", "Tyr", "Leu", "Trp"],
+        "secondary_cleavage": ["Met", "Ala"],
+        "description": "산성 조건에서 방향족 아미노산 N-말단 절단",
+        "affinity_scores": {
+          "hydrophobic": 0.92,
+          "aromatic": 0.95,
+          "basic": 0.25,
+          "acidic": 0.30,
+          "proline_penalty": 0.75
+        }
+      },
+      "suitable_substrates": ["collagen", "pork", "fish", "casein", "animal"],
+      "characteristics": {
+        "DH_range": "10-25%",
+        "FAN_yield": "중간",
+        "bitterness": "높음",
+        "specificity_type": "방향족 특이적",
+        "acid_stable": true
+      },
+      "recommended_combinations": [
+        {"enzyme": "Exopeptidase", "purpose": "쓴맛 감소", "sequence": "2차 (pH 조정 후)"}
+      ],
+      "notes": "산성 조건(pH 1.5-4.0) 필수. 방향족 아미노산 위치 절단으로 쓴맛 발생 가능. 콜라겐 펩타이드 생산에 효과적. pH 조정 필요.",
+      "kosher": false,
+      "halal": false,
+      "gmo_free": true
+    },
+    {
+      "id": "pronase_e",
+      "name": "Pronase E",
+      "manufacturer": "Roche/Sigma",
+      "type": "protease mixture",
+      "ec_number": "EC 3.4.24",
+      "source": "Streptomyces griseus",
+      "activity_unit": "4,000+ PU/mg",
+      "form": "Powder",
+      "optimal_conditions": {
+        "temperature": {"min": 35, "max": 55, "optimal": 45, "unit": "°C"},
+        "pH": {"min": 6.5, "max": 8.5, "optimal": 7.5},
+        "ES_ratio": {"min": 0.1, "max": 0.5, "recommended": 0.2, "unit": "% (w/w)"},
+        "reaction_time": {"min": 4, "max": 24, "typical": 8, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Protease mixture (Endo + Exo)",
+        "primary_cleavage": ["all amino acids"],
+        "secondary_cleavage": [],
+        "description": "10종 이상 프로테아제 혼합물, 완전 가수분해 가능",
+        "affinity_scores": {
+          "hydrophobic": 0.85,
+          "aromatic": 0.85,
+          "basic": 0.85,
+          "acidic": 0.85,
+          "proline_penalty": 0.15
+        }
+      },
+      "suitable_substrates": ["microalgae", "yeast", "bacteria", "plant", "animal"],
+      "characteristics": {
+        "DH_range": "40-70%",
+        "FAN_yield": "매우 높음",
+        "bitterness": "낮음",
+        "specificity_type": "매우 광범위 (Non-specific)",
+        "complete_hydrolysis": true
+      },
+      "recommended_combinations": [],
+      "notes": "가장 광범위한 특이성. 미세조류/효모 세포벽 단백질 분해에 효과적. 완전 가수분해 필요시 사용. 고가.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": true
+    },
+    {
+      "id": "viscozyme_cellulase",
+      "name": "Viscozyme L + Protease",
+      "manufacturer": "Novozymes/Novonesis",
+      "type": "cellulase + protease complex",
+      "ec_number": "EC 3.2.1.4 + EC 3.4",
+      "source": "Aspergillus sp.",
+      "activity_unit": "100 FBG/g (Fungal Beta-Glucanase)",
+      "form": "Liquid",
+      "optimal_conditions": {
+        "temperature": {"min": 40, "max": 55, "optimal": 50, "unit": "°C"},
+        "pH": {"min": 4.0, "max": 6.0, "optimal": 5.0},
+        "ES_ratio": {"min": 0.5, "max": 3.0, "recommended": 1.5, "unit": "% (v/w)"},
+        "reaction_time": {"min": 4, "max": 16, "typical": 8, "unit": "hours"}
+      },
+      "specificity": {
+        "type": "Cell wall degrading + protease complex",
+        "primary_cleavage": ["Beta-glucan", "cellulose", "hemicellulose"],
+        "secondary_cleavage": ["protein after cell wall disruption"],
+        "description": "세포벽 분해 후 단백질 방출",
+        "affinity_scores": {
+          "hydrophobic": 0.70,
+          "aromatic": 0.65,
+          "basic": 0.65,
+          "acidic": 0.65,
+          "proline_penalty": 0.40
+        }
+      },
+      "suitable_substrates": ["microalgae", "yeast", "plant"],
+      "characteristics": {
+        "DH_range": "15-35% (단백질 기준)",
+        "FAN_yield": "높음",
+        "bitterness": "중간",
+        "specificity_type": "세포벽 복합",
+        "cell_wall_disruption": true
+      },
+      "recommended_combinations": [
+        {"enzyme": "Alcalase", "purpose": "세포벽 분해 후 단백질 가수분해", "sequence": "2차"}
+      ],
+      "notes": "미세조류/효모의 세포벽 분해 필수. Protease와 2단계 처리 권장. 산성 pH에서 작용.",
+      "kosher": true,
+      "halal": true,
+      "gmo_free": false
+    }
+  ],
+  "substrate_type_rules": {
+    "soy": {
+      "preferred_enzymes": ["alcalase_2.4L", "flavourzyme_1000L", "protamex", "protana_prime"],
+      "characteristics": ["높은 글루탐산", "소수성 AA 풍부", "균형잡힌 프로파일"],
+      "typical_TN": "9-14%",
+      "recommended_process": "Alcalase → Flavourzyme 또는 Alcalase → Protana Prime → Protana UBoost"
+    },
+    "wheat": {
+      "preferred_enzymes": ["alcalase_2.4L", "corolase_vp", "corolase_2ts", "maxipro_psp"],
+      "characteristics": ["높은 글루탐산/글루타민", "높은 프롤린", "글루텐 함유"],
+      "typical_TN": "12-14%",
+      "recommended_process": "고온 안정 효소(COROLASE VP/2TS) 사용 또는 PSP로 프롤린 위치 절단"
+    },
+    "pea": {
+      "preferred_enzymes": ["alcalase_2.4L", "flavourzyme_1000L", "protamex"],
+      "characteristics": ["높은 라이신/아르기닌", "균형잡힌 AA"],
+      "typical_TN": "14-15%",
+      "recommended_process": "Alcalase → Flavourzyme"
+    },
+    "rice": {
+      "preferred_enzymes": ["alcalase_2.4L", "flavourzyme_1000L"],
+      "characteristics": ["높은 알라닌", "낮은 라이신"],
+      "typical_TN": "12-13%",
+      "recommended_process": "Alcalase → Flavourzyme"
+    },
+    "fish": {
+      "preferred_enzymes": ["neutrase_0.8L", "alcalase_2.4L", "papain", "corolase_7089"],
+      "characteristics": ["콜라겐 함유", "높은 글리신/프롤린"],
+      "typical_TN": "15-17%",
+      "recommended_process": "Neutrase 또는 COROLASE 7089 단독 또는 Alcalase → Neutrase"
+    },
+    "pork": {
+      "preferred_enzymes": ["neutrase_0.8L", "papain", "bromelain", "corolase_8000"],
+      "characteristics": ["콜라겐 함유", "높은 하이드록시프롤린"],
+      "typical_TN": "13-17%",
+      "recommended_process": "Neutrase 또는 Papain/Bromelain"
+    },
+    "collagen": {
+      "preferred_enzymes": ["neutrase_0.8L", "papain", "bromelain", "pepsin", "corolase_7089", "corolase_8000", "maxipro_psp"],
+      "characteristics": ["Gly-Pro-X 반복", "매우 높은 Gly/Pro/Hyp"],
+      "typical_TN": "16-18%",
+      "recommended_process": "Pepsin(산성) 또는 Neutrase/COROLASE 7089(중성) → Exopeptidase"
+    },
+    "casein": {
+      "preferred_enzymes": ["trypsin", "alcalase_2.4L", "neutrase_0.8L", "protamex"],
+      "characteristics": ["높은 포스포세린", "높은 Pro"],
+      "typical_TN": "9-10%",
+      "recommended_process": "Trypsin(Tryptone 생산) 또는 Alcalase → Flavourzyme"
+    },
+    "yeast": {
+      "preferred_enzymes": ["viscozyme_cellulase", "pronase_e", "flavourzyme_1000L", "protana_prime"],
+      "characteristics": ["세포벽 존재", "높은 Glu/Asp"],
+      "typical_TN": "10-12%",
+      "recommended_process": "Viscozyme(세포벽 분해) → Alcalase → Flavourzyme/Protana Prime"
+    },
+    "microalgae": {
+      "preferred_enzymes": ["viscozyme_cellulase", "pronase_e", "alcalase_2.4L"],
+      "characteristics": ["강한 세포벽", "다양한 AA 조성"],
+      "typical_TN": "8-50% (종에 따라 다름)",
+      "recommended_process": "세포벽 파쇄(물리적/효소적) → Pronase 또는 Alcalase → Flavourzyme"
+    },
+    "blood": {
+      "preferred_enzymes": ["maxipro_hsp", "neutrase_0.8L", "alcalase_2.4L"],
+      "characteristics": ["높은 His (헤모글로빈)", "Heme 제거 필요"],
+      "typical_TN": "15-18%",
+      "recommended_process": "Maxipro HSP(탈색) → Neutrase/Alcalase"
+    }
+  },
+  "scoring_weights": {
+    "hydrophobic_weight": 30,
+    "aromatic_weight": 25,
+    "basic_weight": 20,
+    "acidic_weight": 15,
+    "proline_penalty_weight": 10,
+    "substrate_match_bonus": 1.20,
+    "collagen_specialist_bonus": 1.25,
+    "cell_wall_bonus": 1.30,
+    "thermostable_bonus": 1.10
+  },
+  "manufacturer_info": {
+    "novozymes": {
+      "name": "Novozymes/Novonesis",
+      "country": "Denmark",
+      "website": "https://www.novonesis.com",
+      "contact": "biosolutions@novonesis.com",
+      "product_lines": ["Alcalase", "Flavourzyme", "Protamex", "Neutrase", "Protana", "Savinase", "Viscozyme"]
+    },
+    "ab_enzymes": {
+      "name": "AB Enzymes",
+      "country": "Germany",
+      "website": "https://www.abenzymes.com",
+      "contact": "info@abenzymes.com",
+      "product_lines": ["COROLASE 7089", "COROLASE 8000", "COROLASE VP", "COROLASE 2TS"]
+    },
+    "dsm_firmenich": {
+      "name": "DSM-Firmenich",
+      "country": "Netherlands/Switzerland",
+      "website": "https://www.dsm-firmenich.com",
+      "contact": "food.beverages@dsm-firmenich.com",
+      "product_lines": ["Maxipro HSP", "Maxipro PSP", "Maxipro portfolio"]
+    }
+  }
+}
