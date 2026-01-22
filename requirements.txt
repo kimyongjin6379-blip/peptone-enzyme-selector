@@ -1,9 +1,10 @@
 pandas
 numpy
 openpyxl
-streamlit
+streamlit>=1.3x
 plotly
 python-dateutil
 PyYAML
 scikit-learn
 joblib
+altair>=5
